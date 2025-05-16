@@ -1,0 +1,97 @@
+% XeLaTeX preamble
+
+\documentclass[12pt]{article}
+
+\usepackage[greek,english, main = greek]{babel} % for greek text
+\usepackage{fontspec} % for text fonts
+\usepackage{unicode-math} % for math fonts
+\usepackage{alphabeta} % for use of greek math letters
+\usepackage{array} % for enhanced tables
+\usepackage[export]{adjustbox}  % <-- allows valign option
+\usepackage{diagbox}            % for diagonal cell splits
+\usepackage{mdframed}
+\usepackage{amsmath} % for enhanced math 
+\usepackage{bm} % for bold math symbols
+\usepackage[a4paper, left=1.5cm, right=1.5cm, top=2.5cm, bottom=2.5cm]{geometry} % for margins
+% \pagestyle{empty} % for removing page numbering, headers etc
+\usepackage{subcaption}
+\usepackage{makecell} % for better array control (cells within cells)
+%\usepackage{kerkis, kmath} % for font style and matching math font style
+\usepackage{graphicx} % for images
+\usepackage{float} % for better positioning of images
+\usepackage{tocloft}  % for better TOC control
+% \usepackage{indentfirst} % for indenting of first paragraph in sections
+\usepackage[hidelinks]{hyperref} % for links
+\usepackage{cleveref} % for references
+\usepackage{listings}
+\usepackage{xcolor}  % for custom colors
+\usepackage{tcolorbox}
+\usepackage{siunitx}
+
+
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mybg}{rgb}{0.95,0.95,0.95}
+
+\lstdefinelanguage{Matlab}{
+  keywords={break,case,catch,continue,else,elseif,end,for,function,
+    global,if,otherwise,persistent,return,switch,try,while},
+  keywordstyle=\color{blue},
+  identifierstyle=\color{black},
+  commentstyle=\color{mygray}\ttfamily,
+  stringstyle=\color{mymauve},
+  backgroundcolor=\color{mybg},
+  morecomment=[l][\color{magenta}]{\%}
+}
+
+\lstset{
+  language=Matlab,
+  basicstyle=\ttfamily\small,
+  numbers=left,
+  numberstyle=\tiny\color{gray},
+  stepnumber=1,
+  numbersep=10pt,
+  backgroundcolor=\color{mybg},
+  showspaces=false,
+  showstringspaces=false,
+  showtabs=false,
+  frame=single,
+  rulecolor=\color{black},
+  captionpos=b,
+  breaklines=true,
+  breakatwhitespace=false,
+  tabsize=4
+}
+
+\crefname{lstlisting}{listing}{listings}
+\Crefname{lstlisting}{Listing}{Listings}
+
+\newcommand{\e}{\selectlanguage{english}} % for explicit use of english 
+\newcommand{\g}{\selectlanguage{greek}} % for explicit use of greek 
+
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}} % dots in TOC
+
+\crefname{equation}{εξίσωση}{εξισώσεις}
+\Crefname{equation}{Εξίσωση}{Εξισώσεις}
+\crefname{figure}{σχήμα}{σχήματα}
+\Crefname{figure}{Σχήμα}{Σχήματα}
+\crefname{table}{πίνακας}{πίνακες}
+\Crefname{table}{Πίνακας}{Πίνακες}
+
+
+\setmainfont{Libertinus Serif}
+\setmathfont{Libertinus Math}
+
+
+\newcommand{\image}[4]{  % #1: image filename, #2: caption, #3: width, #4: label
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=#3]{Images/#1.png}
+  \end{center}
+  \caption{#2}
+  \label{fig:#4}
+\end{figure}
+}
+
+\setlength{\parindent}{0pt}   % No paragraph indentation
+\setlength{\parskip}{0.5em}   % Optional: vertical space between paragraphs
